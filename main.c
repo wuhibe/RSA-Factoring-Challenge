@@ -27,11 +27,19 @@ int main(int argc, char *argv[])
 	return (0);
 }
 /**
+ * parse_factor - function to factorize and print the values
+ * @buffer: string passed from file
+ * Return: None
  */
 void parse_factor(char *buffer)
 {
-       unsigned long long int i, factor, number = atoi(buffer);
+	unsigned long long int i, factor, number = atoi(buffer);
 
+	if (number < 4)
+	{
+		printf("%llu=%llu*1\n", number, number);
+		return;
+	}
 	for (i = 2; i <= number; i++)
 	{
 		if (number % i == 0)
